@@ -88,7 +88,7 @@ const meals = [
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fphotos%2Ftaco&psig=AOvVaw25xmsSQjx0zw8PKwZkTQjw&ust=1702412014426000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCIjNzY2ZiIMDFQAAAAAdAAAAABAE',
+        'https://cdn.pixabay.com/photo/2017/03/17/16/44/taco-2152097_1280.jpg',
     duration: 30,
     ingredients: ['Tortillas', 'Ground Beef', 'Tomatoes', 'Cheese', 'Lettuce'],
     steps: ['Cook ground beef', 'Assemble tacos', 'Enjoy!'],
@@ -104,7 +104,8 @@ const meals = [
     title: 'Margherita Pizza',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl: 'https://www.freepik.com/free-photo/margarita-pizza-table_7136415.htm#query=margherita%20pizza&position=0&from_view=keyword&track=ais&uuid=7e6b6b05-e4fc-4f0c-8752-3143ba041402',
+    imageUrl:
+        'https://cdn.pixabay.com/photo/2019/11/30/05/34/pizza-4662567_1280.jpg',
     duration: 25,
     ingredients: ['Pizza dough', 'Tomato sauce', 'Mozzarella', 'Basil'],
     steps: [
@@ -120,15 +121,12 @@ const meals = [
   ),
   Meal(
     id: 'm3',
-    categories: [
-      'c2',
-      'c6',
-    ],
+    categories: ['c2', 'c6', 'c13'],
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.giallozafferano.com%2Frecipes%2Fspaghetti-with-tomato-sauce.html&psig=AOvVaw0H_QuT1TgVrLwPptTgoh_E&ust=1702411847403000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMDg6L-YiIMDFQAAAAAdAAAAABAD',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
     duration: 20,
     ingredients: [
       '4 Tomatoes',
@@ -162,7 +160,8 @@ const meals = [
     title: 'Sushi Rolls',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
-    imageUrl: 'https://pixabay.com/photos/sushi-japanese-asian-food-raw-354628/',
+    imageUrl:
+        'https://cdn.pixabay.com/photo/2017/03/02/20/53/sushi-2112350_1280.jpg',
     duration: 60,
     ingredients: ['Sushi rice', 'Nori', 'Fish', 'Vegetables', 'Soy sauce'],
     steps: [
@@ -208,8 +207,7 @@ const meals = [
   Meal(
     id: 'm6',
     categories: [
-      'c2',
-      'c3',
+      'c8',
     ],
     title: 'Classic Hamburger',
     affordability: Affordability.pricey,
@@ -277,8 +275,9 @@ const meals = [
     id: 'm8',
     categories: [
       'c6',
-      'c5',
-      'c13',
+      'c13'
+          'c5',
+      'c15',
       'c10',
     ],
     title: 'Salad with Smoked Salmon',
@@ -312,10 +311,7 @@ const meals = [
   ),
   Meal(
     id: 'm9',
-    categories: [
-      'c6',
-      'c10',
-    ],
+    categories: ['c6', 'c10', 'c12'],
     title: 'Delicious Orange Mousse',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
@@ -349,7 +345,8 @@ const meals = [
   Meal(
     id: 'm10',
     categories: [
-      'c7',
+      'c12',
+      'c15',
     ],
     title: 'Pancakes',
     affordability: Affordability.affordable,
@@ -380,7 +377,7 @@ const meals = [
   Meal(
     id: 'm11',
     categories: [
-      'c8',
+      'c3',
     ],
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.pricey,
@@ -412,9 +409,7 @@ const meals = [
   ),
   Meal(
     id: 'm12',
-    categories: [
-      'c9',
-    ],
+    categories: ['c9', 'c12'],
     title: 'Chocolate Souffle',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
@@ -461,12 +456,7 @@ const meals = [
   ),
   Meal(
     id: 'm13',
-    categories: [
-      'c6',
-      'c10',
-      'c5',
-      'c13',
-    ],
+    categories: ['c6', 'c10', 'c5', 'c13', 'c15'],
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,

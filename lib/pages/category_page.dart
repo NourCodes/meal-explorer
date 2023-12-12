@@ -3,12 +3,20 @@ import 'package:meal_app/data/db.dart';
 import 'package:meal_app/pages/meal_page.dart';
 import 'package:meal_app/widgets/category_grid.dart';
 
+import '../models/category_model.dart';
+
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});
-  void _selectCategory(BuildContext context) {
+
+  void _selectCategory(BuildContext context, Category category) {
+    final filteredList =
+        meals.where((meal) => meal.categories.contains(category.id)).toList();
+
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const MealPage(meals: meals, title: "Categories"),
-    ));
+      builder: (context) =>
+          MealPage(meals: filteredList, title: category.title),
+    ),
+    );
   }
 
   @override
@@ -27,7 +35,8 @@ class CategoryPage extends StatelessWidget {
           mainAxisSpacing: 20,
         ),
         itemBuilder: (context, index) => CategoryGrid(
-          onSelectCategory: () => _selectCategory(context),
+          onSelectCategory: () =>
+              _selectCategory(context, categoriesList[index]),
           category: categoriesList[index],
         ),
       ),
