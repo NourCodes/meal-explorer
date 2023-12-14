@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_app/widgets/meals_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 import '../models/meal_model.dart';
-import '../pages/meal_detail_page.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
