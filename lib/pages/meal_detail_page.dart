@@ -4,13 +4,30 @@ import '../models/meal_model.dart';
 
 class MealDetailPage extends StatelessWidget {
   final Meal meal;
-  const MealDetailPage({Key? key, required this.meal}) : super(key: key);
+  final void Function(Meal meal) onToggleFavoriteMeal;
+  MealDetailPage(
+      {Key? key, required this.meal, required this.onToggleFavoriteMeal})
+      : super(key: key);
+  bool isPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(meal.title, style: const TextStyle(fontSize: 18)),
+        title: Text(
+          meal.title,
+          style: const TextStyle(
+            fontSize: 18,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              onToggleFavoriteMeal(meal);
+            },
+            icon: const Icon(Icons.star),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
