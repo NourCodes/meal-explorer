@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/pages/category_page.dart';
+import 'package:meal_app/pages/filter_page.dart';
 import 'package:meal_app/pages/meal_page.dart';
 import 'package:meal_app/widgets/drawer.dart';
 
 import '../models/meal_model.dart';
+
+//initially set all filters to false
+Map<Filters, bool> initialFilters = {
+  Filters.glutenFree: false,
+  Filters.vegetarian: false,
+  Filters.vegan: false,
+  Filters.lactoseFree: false
+};
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -61,10 +70,18 @@ class _TabPageState extends State<TabPage> {
       );
       activePageTitle = "Favorite Meals";
     }
-    void setPage(String identifier) {
+    void setPage(String identifier) async {
+      Navigator.of(context).pop();
       if (identifier == "filter") {
-      } else {
-        Navigator.of(context).pop();
+        final result = await Navigator.of(context).push<Map<Filters, bool>>(
+          MaterialPageRoute(
+            builder: (context) => const FilterPage(),
+          ),
+        );
+        //update the value
+        setState(() {
+          initialFilters = result ?? initialFilters;
+        });
       }
     }
 
