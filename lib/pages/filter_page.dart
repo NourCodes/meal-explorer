@@ -10,7 +10,8 @@ enum Filters {
 }
 
 class FilterPage extends StatefulWidget {
-  const FilterPage({Key? key}) : super(key: key);
+  final Map<Filters, bool> selectedFilters;
+  const FilterPage({Key? key, required this.selectedFilters}) : super(key: key);
 
   @override
   State<FilterPage> createState() => _FilterPageState();
@@ -23,14 +24,26 @@ class _FilterPageState extends State<FilterPage> {
   var _veganFreeFilter = false;
 
   @override
+  void initState() {
+    _glutenFreeFilter = widget.selectedFilters[Filters.glutenFree]!;
+    _lactoseFreeFilter = widget.selectedFilters[Filters.lactoseFree]!;
+    _vegetarianFreeFilter = widget.selectedFilters[Filters.vegetarian]!;
+    _veganFreeFilter = widget.selectedFilters[Filters.vegan]!;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Filters"),
       ),
       body: PopScope(
-        onPopInvoked: (didPop) async {
-          Navigator.of(context).pop({
+        canPop: false,
+        onPopInvoked: (bool didPop) async {
+          if (didPop) return;
+
+          return Navigator.of(context).pop({
             Filters.glutenFree: _glutenFreeFilter,
             Filters.lactoseFree: _lactoseFreeFilter,
             Filters.vegan: _veganFreeFilter,

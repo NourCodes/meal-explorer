@@ -6,16 +6,19 @@ import '../models/category_model.dart';
 import '../models/meal_model.dart';
 
 class CategoryPage extends StatelessWidget {
+  final List<Meal> availableMeals;
   final void Function(Meal meal) onToggleFavoriteMeal;
 
   const CategoryPage({
     super.key,
     required this.onToggleFavoriteMeal,
+    required this.availableMeals,
   });
 
   void _selectCategory(BuildContext context, Category category) {
-    final filteredList =
-        meals.where((meal) => meal.categories.contains(category.id)).toList();
+    final filteredList = availableMeals
+        .where((meal) => meal.categories.contains(category.id))
+        .toList();
 
     Navigator.of(context).push(
       MaterialPageRoute(
