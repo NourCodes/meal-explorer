@@ -7,11 +7,9 @@ import '../models/meal_model.dart';
 
 class CategoryPage extends StatelessWidget {
   final List<Meal> availableMeals;
-  final void Function(Meal meal) onToggleFavoriteMeal;
 
   const CategoryPage({
     super.key,
-    required this.onToggleFavoriteMeal,
     required this.availableMeals,
   });
 
@@ -25,7 +23,6 @@ class CategoryPage extends StatelessWidget {
         builder: (context) => MealPage(
           meals: filteredList,
           title: category.title,
-          onToggleFavoriteMeal: onToggleFavoriteMeal,
         ),
       ),
     );
