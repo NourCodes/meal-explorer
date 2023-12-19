@@ -4,7 +4,6 @@ import 'package:meal_app/pages/category_page.dart';
 import 'package:meal_app/pages/filter_page.dart';
 import 'package:meal_app/pages/meal_page.dart';
 import 'package:meal_app/providers/favorite_provider.dart';
-import 'package:meal_app/providers/meal_provider.dart';
 import 'package:meal_app/widgets/drawer.dart';
 import '../providers/filters_provider.dart';
 
@@ -35,26 +34,7 @@ class _TabPageState extends ConsumerState<TabPage> {
 
   @override
   Widget build(BuildContext context) {
-    final meals = ref.watch(mealProvider);
-    final activeFilters = ref.watch(filterProvider);
-    final filteredMeals = meals.where((element) {
-      //if the the selected filter is true and the meal is not lactose free return false
-      if (activeFilters[Filters.lactoseFree]! && !element.isLactoseFree) {
-        return false;
-      }
-      if (activeFilters[Filters.glutenFree]! && !element.isGlutenFree) {
-        return false;
-      }
-      if (activeFilters[Filters.vegan]! && !element.isVegan) {
-        return false;
-      }
-      if (activeFilters[Filters.vegetarian]! && !element.isVegetarian) {
-        return false;
-      }
-
-      return true;
-    }).toList();
-
+    final filteredMeals = ref.watch(filteredMealsProvider);
     Widget activePage = CategoryPage(
       //the available meals will be only the filtered meals
       availableMeals: filteredMeals,

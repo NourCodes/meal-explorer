@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meal_app/providers/meal_provider.dart';
 import '../models/meal_model.dart';
 import 'package:meal_app/providers/favorite_provider.dart';
 
@@ -12,6 +13,9 @@ class MealDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteMeal = ref.watch(favoriteMealsProvider);
+    final isFavorite = favoriteMeal.contains(meal);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -35,7 +39,7 @@ class MealDetailPage extends ConsumerWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.star),
+            icon: Icon(isFavorite ? Icons.star : Icons.star_border),
           ),
         ],
       ),
